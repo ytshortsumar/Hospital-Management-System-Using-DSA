@@ -1,0 +1,831 @@
+Hospital System - Hacker-style Strict Test Report
+Generated: 2025-12-12 15:46:06
+
+Notes: Strict equality required between Expected and Actual outputs.
+
+============================
+TEST 1: Invalid ID=0
+----------------------------
+INPUT:
+Bed=1, ID=0, Name=X, Age=20, Disease=Flu, Date=12/01/2024
+
+EXPECTED OUTPUT:
+Error: Invalid Patient ID.
+
+ACTUAL OUTPUT:
+Error: Invalid Patient ID.
+
+RESULT: PASS
+============================
+
+============================
+TEST 2: Invalid Age=0
+----------------------------
+INPUT:
+Bed=1, ID=1, Name=A, Age=0, Disease=Flu, Date=12/01/2024
+
+EXPECTED OUTPUT:
+Error: Invalid Age.
+
+ACTUAL OUTPUT:
+Error: Invalid Age.
+
+RESULT: PASS
+============================
+
+============================
+TEST 3: Empty Name
+----------------------------
+INPUT:
+Bed=2, ID=2, Name=(empty), Age=25, Disease=Cold, Date=11/01/2024
+
+EXPECTED OUTPUT:
+Error: Name cannot be empty.
+
+ACTUAL OUTPUT:
+Error: Name cannot be empty.
+
+RESULT: PASS
+============================
+
+============================
+TEST 4: Empty Disease
+----------------------------
+INPUT:
+Bed=2, ID=3, Name=Bob, Age=30, Disease=(empty), Date=10/01/2024
+
+EXPECTED OUTPUT:
+Error: Disease cannot be empty.
+
+ACTUAL OUTPUT:
+Error: Disease cannot be empty.
+
+RESULT: PASS
+============================
+
+============================
+TEST 5: Invalid Date (no slashes)
+----------------------------
+INPUT:
+Bed=3, ID=4, Name=Carl, Age=28, Disease=Injury, Date=20240101
+
+EXPECTED OUTPUT:
+Error: Invalid date format (dd/mm/yyyy).
+
+ACTUAL OUTPUT:
+Error: Invalid date format (dd/mm/yyyy).
+
+RESULT: PASS
+============================
+
+============================
+TEST 6: Valid assign bed1
+----------------------------
+INPUT:
+Bed=1, ID=5, Name=Ali, Age=30, Disease=Fever, Date=12/01/2024
+
+EXPECTED OUTPUT:
+Patient assigned to bed 1.
+
+ACTUAL OUTPUT:
+Patient assigned to bed 1.
+
+RESULT: PASS
+============================
+
+============================
+TEST 7: Duplicate ID
+----------------------------
+INPUT:
+Bed=2, ID=5, Name=Dup, Age=22, Disease=Cold, Date=11/11/2024
+
+EXPECTED OUTPUT:
+Error: Duplicate Patient ID.
+
+ACTUAL OUTPUT:
+Error: Duplicate Patient ID.
+
+RESULT: PASS
+============================
+
+============================
+TEST 8: Assign to occupied bed1
+----------------------------
+INPUT:
+Bed=1, ID=6, Name=NewGuy, Age=24, Disease=Cold, Date=11/11/2024
+
+EXPECTED OUTPUT:
+Error: Bed 1 is already occupied by Ali.
+
+ACTUAL OUTPUT:
+Error: Bed 1 is already occupied by Ali.
+
+RESULT: PASS
+============================
+
+============================
+TEST 9: Assign to non-existing bed99
+----------------------------
+INPUT:
+Bed=99, ID=7, Name=Raza, Age=40, Disease=Flu, Date=09/02/2024
+
+EXPECTED OUTPUT:
+Error: Bed 99 not found.
+
+ACTUAL OUTPUT:
+Error: Bed 99 not found.
+
+RESULT: PASS
+============================
+
+============================
+TEST 10: Discharge non-existing bed99
+----------------------------
+INPUT:
+Bed=99
+
+EXPECTED OUTPUT:
+Error: Bed 99 not found.
+
+ACTUAL OUTPUT:
+Error: Bed 99 not found.
+
+RESULT: PASS
+============================
+
+============================
+TEST 11: Discharge empty bed2
+----------------------------
+INPUT:
+Bed=2
+
+EXPECTED OUTPUT:
+Error: Bed 2 is already empty.
+
+ACTUAL OUTPUT:
+Error: Bed 2 is already empty.
+
+RESULT: PASS
+============================
+
+============================
+TEST 12: Discharge occupied bed1
+----------------------------
+INPUT:
+Bed=1
+
+EXPECTED OUTPUT:
+Patient discharged from bed 1.
+
+ACTUAL OUTPUT:
+Patient discharged from bed 1.
+
+RESULT: PASS
+============================
+
+============================
+TEST 13: Discharge bed1 again
+----------------------------
+INPUT:
+Bed=1
+
+EXPECTED OUTPUT:
+Error: Bed 1 is already empty.
+
+ACTUAL OUTPUT:
+Error: Bed 1 is already empty.
+
+RESULT: PASS
+============================
+
+============================
+TEST 14: Assign P1 to bed1
+----------------------------
+INPUT:
+Bed=1, ID=8, Name=P1, Age=31, Disease=X, Date=01/03/2024
+
+EXPECTED OUTPUT:
+Patient assigned to bed 1.
+
+ACTUAL OUTPUT:
+Patient assigned to bed 1.
+
+RESULT: PASS
+============================
+
+============================
+TEST 15: Assign P2 to bed2
+----------------------------
+INPUT:
+Bed=2, ID=9, Name=P2, Age=32, Disease=Y, Date=02/03/2024
+
+EXPECTED OUTPUT:
+Patient assigned to bed 2.
+
+ACTUAL OUTPUT:
+Patient assigned to bed 2.
+
+RESULT: PASS
+============================
+
+============================
+TEST 16: Assign P3 to bed3
+----------------------------
+INPUT:
+Bed=3, ID=10, Name=P3, Age=33, Disease=Z, Date=03/03/2024
+
+EXPECTED OUTPUT:
+Patient assigned to bed 3.
+
+ACTUAL OUTPUT:
+Patient assigned to bed 3.
+
+RESULT: PASS
+============================
+
+============================
+TEST 17: Assign P4 to bed4
+----------------------------
+INPUT:
+Bed=4, ID=11, Name=P4, Age=34, Disease=A, Date=04/03/2024
+
+EXPECTED OUTPUT:
+Patient assigned to bed 4.
+
+ACTUAL OUTPUT:
+Patient assigned to bed 4.
+
+RESULT: PASS
+============================
+
+============================
+TEST 18: Assign P5 to bed5
+----------------------------
+INPUT:
+Bed=5, ID=12, Name=P5, Age=35, Disease=B, Date=05/03/2024
+
+EXPECTED OUTPUT:
+Patient assigned to bed 5.
+
+ACTUAL OUTPUT:
+Patient assigned to bed 5.
+
+RESULT: PASS
+============================
+
+============================
+TEST 19: Show current bed list forward
+----------------------------
+INPUT:
+Show current bed list forward
+
+EXPECTED OUTPUT:
+
+--- Bed List (Forward) ---
+Bed 1: Occupied by P1, Age: 31, Disease: X, Date: 01/03/2024
+Bed 2: Occupied by P2, Age: 32, Disease: Y, Date: 02/03/2024
+Bed 3: Occupied by P3, Age: 33, Disease: Z, Date: 03/03/2024
+Bed 4: Occupied by P4, Age: 34, Disease: A, Date: 04/03/2024
+Bed 5: Occupied by P5, Age: 35, Disease: B, Date: 05/03/2024
+Bed 6: Available
+Bed 7: Available
+Bed 8: Available
+Bed 9: Available
+Bed 10: Available
+
+ACTUAL OUTPUT:
+
+--- Bed List (Forward) ---
+Bed 1: Occupied by P1, Age: 31, Disease: X, Date: 01/03/2024
+Bed 2: Occupied by P2, Age: 32, Disease: Y, Date: 02/03/2024
+Bed 3: Occupied by P3, Age: 33, Disease: Z, Date: 03/03/2024
+Bed 4: Occupied by P4, Age: 34, Disease: A, Date: 04/03/2024
+Bed 5: Occupied by P5, Age: 35, Disease: B, Date: 05/03/2024
+Bed 6: Available
+Bed 7: Available
+Bed 8: Available
+Bed 9: Available
+Bed 10: Available
+
+RESULT: PASS
+============================
+
+============================
+TEST 20: Search bed3 (occupied)
+----------------------------
+INPUT:
+Bed=3
+
+EXPECTED OUTPUT:
+Bed 3 is occupied by P3.
+
+ACTUAL OUTPUT:
+Bed 3 is occupied by P3.
+
+RESULT: PASS
+============================
+
+============================
+TEST 21: Search bed7 (available)
+----------------------------
+INPUT:
+Bed=7
+
+EXPECTED OUTPUT:
+Bed 7 is available.
+
+ACTUAL OUTPUT:
+Bed 7 is available.
+
+RESULT: PASS
+============================
+
+============================
+TEST 22: Search bed99 (not found)
+----------------------------
+INPUT:
+Bed=99
+
+EXPECTED OUTPUT:
+Error: Bed 99 not found.
+
+ACTUAL OUTPUT:
+Error: Bed 99 not found.
+
+RESULT: PASS
+============================
+
+============================
+TEST 23: Search name P3
+----------------------------
+INPUT:
+Name=P3
+
+EXPECTED OUTPUT:
+P3 is in bed 3.
+
+ACTUAL OUTPUT:
+P3 is in bed 3.
+
+RESULT: PASS
+============================
+
+============================
+TEST 24: Search name Nobody
+----------------------------
+INPUT:
+Name=Nobody
+
+EXPECTED OUTPUT:
+Patient not found.
+
+ACTUAL OUTPUT:
+Patient not found.
+
+RESULT: PASS
+============================
+
+============================
+TEST 25: Show current bed list backward
+----------------------------
+INPUT:
+Show current bed list backward
+
+EXPECTED OUTPUT:
+
+--- Bed List (Backward) ---
+Bed 10: Available
+Bed 9: Available
+Bed 8: Available
+Bed 7: Available
+Bed 6: Available
+Bed 5: Occupied by P5, Age: 35, Disease: B, Date: 05/03/2024
+Bed 4: Occupied by P4, Age: 34, Disease: A, Date: 04/03/2024
+Bed 3: Occupied by P3, Age: 33, Disease: Z, Date: 03/03/2024
+Bed 2: Occupied by P2, Age: 32, Disease: Y, Date: 02/03/2024
+Bed 1: Occupied by P1, Age: 31, Disease: X, Date: 01/03/2024
+
+ACTUAL OUTPUT:
+
+--- Bed List (Backward) ---
+Bed 10: Available
+Bed 9: Available
+Bed 8: Available
+Bed 7: Available
+Bed 6: Available
+Bed 5: Occupied by P5, Age: 35, Disease: B, Date: 05/03/2024
+Bed 4: Occupied by P4, Age: 34, Disease: A, Date: 04/03/2024
+Bed 3: Occupied by P3, Age: 33, Disease: Z, Date: 03/03/2024
+Bed 2: Occupied by P2, Age: 32, Disease: Y, Date: 02/03/2024
+Bed 1: Occupied by P1, Age: 31, Disease: X, Date: 01/03/2024
+
+RESULT: PASS
+============================
+
+============================
+TEST 26: Compute occupancy stats
+----------------------------
+INPUT:
+Compute occupancy stats
+
+EXPECTED OUTPUT:
+Total Beds: 10, Occupied: 5, Available: 5
+Occupancy Rate: 50%
+
+ACTUAL OUTPUT:
+Total Beds: 10, Occupied: 5, Available: 5
+Occupancy Rate: 50%
+
+RESULT: PASS
+============================
+
+============================
+TEST 27: Assign ZeroDate format
+----------------------------
+INPUT:
+Bed=6, ID=13, Name=ZeroDate, Age=40, Disease=Check, Date=00/00/0000
+
+EXPECTED OUTPUT:
+Patient assigned to bed 6.
+
+ACTUAL OUTPUT:
+Patient assigned to bed 6.
+
+RESULT: PASS
+============================
+
+============================
+TEST 28: Assign special char name
+----------------------------
+INPUT:
+Bed=7, ID=14, Name=@!#$%^, Age=29, Disease=S, Date=07/03/2024
+
+EXPECTED OUTPUT:
+Patient assigned to bed 7.
+
+ACTUAL OUTPUT:
+Patient assigned to bed 7.
+
+RESULT: PASS
+============================
+
+============================
+TEST 29: Assign age 150
+----------------------------
+INPUT:
+Bed=8, ID=15, Name=Old, Age=150, Disease=AgeTest, Date=08/03/2024
+
+EXPECTED OUTPUT:
+Patient assigned to bed 8.
+
+ACTUAL OUTPUT:
+Patient assigned to bed 8.
+
+RESULT: PASS
+============================
+
+============================
+TEST 30: Assign very long name
+----------------------------
+INPUT:
+Bed=9, ID=16, Name=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX, Age=45, Disease=Long, Date=09/03/2024
+
+EXPECTED OUTPUT:
+Patient assigned to bed 9.
+
+ACTUAL OUTPUT:
+Patient assigned to bed 9.
+
+RESULT: PASS
+============================
+
+============================
+TEST 31: Assign MAX_INT ID
+----------------------------
+INPUT:
+Bed=10, ID=2147483647, Name=BigID, Age=40, Disease=Max, Date=10/03/2024
+
+EXPECTED OUTPUT:
+Patient assigned to bed 10.
+
+ACTUAL OUTPUT:
+Patient assigned to bed 10.
+
+RESULT: PASS
+============================
+
+============================
+TEST 32: Duplicate MAX_INT ID
+----------------------------
+INPUT:
+Bed=5, ID=2147483647, Name=BigID2, Age=30, Disease=X, Date=11/03/2024
+
+EXPECTED OUTPUT:
+Error: Duplicate Patient ID.
+
+ACTUAL OUTPUT:
+Error: Duplicate Patient ID.
+
+RESULT: PASS
+============================
+
+============================
+TEST 33: Discharge bed4 (occupied)
+----------------------------
+INPUT:
+Bed=4
+
+EXPECTED OUTPUT:
+Patient discharged from bed 4.
+
+ACTUAL OUTPUT:
+Patient discharged from bed 4.
+
+RESULT: PASS
+============================
+
+============================
+TEST 34: Discharge bed4 again (empty)
+----------------------------
+INPUT:
+Bed=4
+
+EXPECTED OUTPUT:
+Error: Bed 4 is already empty.
+
+ACTUAL OUTPUT:
+Error: Bed 4 is already empty.
+
+RESULT: PASS
+============================
+
+============================
+TEST 35: Invalid date with hyphens
+----------------------------
+INPUT:
+Bed=4, ID=17, Name=Hyphen, Age=25, Disease=D, Date=12-01-2024
+
+EXPECTED OUTPUT:
+Error: Invalid date format (dd/mm/yyyy).
+
+ACTUAL OUTPUT:
+Error: Invalid date format (dd/mm/yyyy).
+
+RESULT: PASS
+============================
+
+============================
+TEST 36: Non-digit date parts
+----------------------------
+INPUT:
+Bed=4, ID=18, Name=AlphaDate, Age=26, Disease=D, Date=ab/cd/efgh
+
+EXPECTED OUTPUT:
+Error: Invalid date format (dd/mm/yyyy).
+
+ACTUAL OUTPUT:
+Error: Invalid date format (dd/mm/yyyy).
+
+RESULT: PASS
+============================
+
+============================
+TEST 37: Empty name again
+----------------------------
+INPUT:
+Bed=4, ID=19, Name=(empty), Age=27, Disease=D, Date=13/03/2024
+
+EXPECTED OUTPUT:
+Error: Name cannot be empty.
+
+ACTUAL OUTPUT:
+Error: Name cannot be empty.
+
+RESULT: PASS
+============================
+
+============================
+TEST 38: Valid reassign bed4
+----------------------------
+INPUT:
+Bed=4, ID=20, Name=Reassign, Age=27, Disease=OK, Date=13/03/2024
+
+EXPECTED OUTPUT:
+Patient assigned to bed 4.
+
+ACTUAL OUTPUT:
+Patient assigned to bed 4.
+
+RESULT: PASS
+============================
+
+============================
+TEST 39: Case sensitivity test search p3
+----------------------------
+INPUT:
+Name=p3
+
+EXPECTED OUTPUT:
+Patient not found.
+
+ACTUAL OUTPUT:
+Patient not found.
+
+RESULT: PASS
+============================
+
+============================
+TEST 40: Assign to occupied bed1 to check occupant name
+----------------------------
+INPUT:
+Bed=1, ID=21, Name=TryOcc, Age=30, Disease=X, Date=14/03/2024
+
+EXPECTED OUTPUT:
+Error: Bed 1 is already occupied by P1.
+
+ACTUAL OUTPUT:
+Error: Bed 1 is already occupied by P1.
+
+RESULT: PASS
+============================
+
+============================
+TEST 41: Discharge bed1
+----------------------------
+INPUT:
+Bed=1
+
+EXPECTED OUTPUT:
+Patient discharged from bed 1.
+
+ACTUAL OUTPUT:
+Patient discharged from bed 1.
+
+RESULT: PASS
+============================
+
+============================
+TEST 42: Forward after discharges
+----------------------------
+INPUT:
+Forward after discharges
+
+EXPECTED OUTPUT:
+
+--- Bed List (Forward) ---
+Bed 1: Available
+Bed 2: Occupied by P2, Age: 32, Disease: Y, Date: 02/03/2024
+Bed 3: Occupied by P3, Age: 33, Disease: Z, Date: 03/03/2024
+Bed 4: Occupied by Reassign, Age: 27, Disease: OK, Date: 13/03/2024
+Bed 5: Occupied by P5, Age: 35, Disease: B, Date: 05/03/2024
+Bed 6: Occupied by ZeroDate, Age: 40, Disease: Check, Date: 00/00/0000
+Bed 7: Occupied by @!#$%^, Age: 29, Disease: S, Date: 07/03/2024
+Bed 8: Occupied by Old, Age: 150, Disease: AgeTest, Date: 08/03/2024
+Bed 9: Occupied by XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX, Age: 45, Disease: Long, Date: 09/03/2024
+Bed 10: Occupied by BigID, Age: 40, Disease: Max, Date: 10/03/2024
+
+ACTUAL OUTPUT:
+
+--- Bed List (Forward) ---
+Bed 1: Available
+Bed 2: Occupied by P2, Age: 32, Disease: Y, Date: 02/03/2024
+Bed 3: Occupied by P3, Age: 33, Disease: Z, Date: 03/03/2024
+Bed 4: Occupied by Reassign, Age: 27, Disease: OK, Date: 13/03/2024
+Bed 5: Occupied by P5, Age: 35, Disease: B, Date: 05/03/2024
+Bed 6: Occupied by ZeroDate, Age: 40, Disease: Check, Date: 00/00/0000
+Bed 7: Occupied by @!#$%^, Age: 29, Disease: S, Date: 07/03/2024
+Bed 8: Occupied by Old, Age: 150, Disease: AgeTest, Date: 08/03/2024
+Bed 9: Occupied by XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX, Age: 45, Disease: Long, Date: 09/03/2024
+Bed 10: Occupied by BigID, Age: 40, Disease: Max, Date: 10/03/2024
+
+RESULT: PASS
+============================
+
+============================
+TEST 43: Stats after discharges
+----------------------------
+INPUT:
+Stats after discharges
+
+EXPECTED OUTPUT:
+Total Beds: 10, Occupied: 9, Available: 1
+Occupancy Rate: 90%
+
+ACTUAL OUTPUT:
+Total Beds: 10, Occupied: 9, Available: 1
+Occupancy Rate: 90%
+
+RESULT: PASS
+============================
+
+============================
+TEST 44: Negative large ID
+----------------------------
+INPUT:
+Bed=2, ID=-1000, Name=NegId, Age=30, Disease=X, Date=15/03/2024
+
+EXPECTED OUTPUT:
+Error: Invalid Patient ID.
+
+ACTUAL OUTPUT:
+Error: Invalid Patient ID.
+
+RESULT: PASS
+============================
+
+============================
+TEST 45: Huge age 1000
+----------------------------
+INPUT:
+Bed=2, ID=22, Name=HugeAge, Age=1000, Disease=X, Date=16/03/2024
+
+EXPECTED OUTPUT:
+Error: Bed 2 is already occupied by P2.
+
+ACTUAL OUTPUT:
+Error: Bed 2 is already occupied by P2.
+
+RESULT: PASS
+============================
+
+============================
+TEST 46: Assign to bed0 (non-existent)
+----------------------------
+INPUT:
+Bed=0, ID=23, Name=ZeroBed, Age=25, Disease=X, Date=17/03/2024
+
+EXPECTED OUTPUT:
+Error: Bed 0 not found.
+
+ACTUAL OUTPUT:
+Error: Bed 0 not found.
+
+RESULT: PASS
+============================
+
+============================
+TEST 47: Search empty name
+----------------------------
+INPUT:
+Name=(empty)
+
+EXPECTED OUTPUT:
+Patient not found.
+
+ACTUAL OUTPUT:
+Patient not found.
+
+RESULT: PASS
+============================
+
+============================
+TEST 48: Search bed -1
+----------------------------
+INPUT:
+Bed=-1
+
+EXPECTED OUTPUT:
+Error: Bed -1 not found.
+
+ACTUAL OUTPUT:
+Error: Bed -1 not found.
+
+RESULT: PASS
+============================
+
+============================
+TEST 49: Assign to bed11 (non-existent)
+----------------------------
+INPUT:
+Bed=11, ID=24, Name=Bed11, Age=30, Disease=X, Date=18/03/2024
+
+EXPECTED OUTPUT:
+Error: Bed 11 not found.
+
+ACTUAL OUTPUT:
+Error: Bed 11 not found.
+
+RESULT: PASS
+============================
+
+============================
+TEST 50: Final occupancy stats
+----------------------------
+INPUT:
+Final occupancy stats
+
+EXPECTED OUTPUT:
+Total Beds: 10, Occupied: 9, Available: 1
+Occupancy Rate: 90%
+
+ACTUAL OUTPUT:
+Total Beds: 10, Occupied: 9, Available: 1
+Occupancy Rate: 90%
+
+RESULT: PASS
+============================
+
+FINAL SUMMARY
+Generated: 2025-12-12 15:46:06
+PASSED: 50
+FAILED: 0
